@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AuthActions } from '@ps-doggo-rating/shared/util-auth';
+import { LoggerService } from '@ps-doggo-rating/shared/util-common';
 import { LayoutComponent } from './layout/layout.component';
 
 @Component({
@@ -13,10 +14,11 @@ import { LayoutComponent } from './layout/layout.component';
 export class AppComponent implements OnInit {
   title = 'ratemydoggo';
 
-  constructor(private store: Store) {}
+  constructor(private store: Store, private logger: LoggerService) {}
 
   ngOnInit(): void {
     this.checkAuth();
+    this.logger.log('AppComponent initialized');
   }
 
   private checkAuth() {

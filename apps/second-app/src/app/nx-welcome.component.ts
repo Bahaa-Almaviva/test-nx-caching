@@ -1,5 +1,6 @@
-import { Component, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, inject, ViewEncapsulation } from '@angular/core';
+import { LoggerService } from '@ps-doggo-rating/shared/util-common';
 
 /* eslint-disable */
 
@@ -846,4 +847,10 @@ nx affected:e2e</pre>
   styles: [],
   encapsulation: ViewEncapsulation.None,
 })
-export class NxWelcomeComponent {}
+export class NxWelcomeComponent {
+  loggerService = inject(LoggerService);
+
+  constructor() {
+    this.loggerService.log('AppComponent constructor');
+  }
+}
